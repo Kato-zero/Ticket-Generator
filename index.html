@@ -396,11 +396,7 @@ function generateTickets(){
         const peopleCount = getPeopleCount(ticketType);
 
         const qrData = `
-${organization}
 Receipt: ${receiptNumber}
-Name: ${fullName}
-Phone: ${phone}
-Event: ${eventName}
 `;
 
         /* WRAPPER */
@@ -587,8 +583,6 @@ function shareWhatsApp(phone,name,event,receipt){
 Hello ${name},
 
 Your ticket for ${event} is confirmed.
-
-Receipt Number: ${receipt}
 
 Please present your QR ticket at entry.`;
 
