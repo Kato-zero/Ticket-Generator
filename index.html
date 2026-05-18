@@ -141,7 +141,6 @@ textarea{
     height:170px;
     object-fit:contain;
     border-radius:50%;
-    background;
     padding:0px;
     margin-bottom:15px;
     box-shadow:0 4px 12px rgba(0,0,0,0.15);
@@ -529,7 +528,7 @@ Event: ${eventName}
 
         ticketGrid.appendChild(wrapper);
 
-       
+        /* QR CODE */
 
         new QRCode(document.getElementById(`qr-${index}`),{
             text: qrData,
@@ -567,15 +566,17 @@ async function downloadImage(ticketId, receiptNumber){
 
 function shareWhatsApp(phone,name,event,receipt){
 
-    /
+    // REMOVE SPACES, +, DASHES, ETC
     phone = phone.replace(/\D/g,'');
 
-   
+    // IF NUMBER STARTS WITH 0
+    // CONVERT TO 260XXXXXXXXX
     if(phone.startsWith("0")){
         phone = "260" + phone.substring(1);
     }
 
-    
+    // IF NUMBER DOES NOT START WITH 260
+    // ADD COUNTRY CODE
     else if(!phone.startsWith("260")){
         phone = "260" + phone;
     }
